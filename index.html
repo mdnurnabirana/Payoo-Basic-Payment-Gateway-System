@@ -31,8 +31,8 @@
                             fill="currentColor"></path>
                     </g>
                 </svg>
-                <input type="tel" class="tabular-nums bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter Your Phone Number"
-                    pattern="[0-9]*" minlength="10" maxlength="10" title="Must be 10 digits" />
+                <input id="mobile" type="tel" class="tabular-nums bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter Your Phone Number"
+                    pattern="[0-9]*" minlength="11" maxlength="11" title="Must be 11 digits" />
             </label>
             <p class="validator-hint text-sm text-gray-500">Must be 10 digits</p>
         </div>
@@ -49,16 +49,10 @@
                         <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                     </g>
                 </svg>
-                <input type="password" class="bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter 4 digit pin"
-                    minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
+                <input id="pin" type="password" class="bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter 4 digit pin"
+                    minlength="4" maxlength="4" pattern="^[0-9]{4}$"
+                    title="Must be more than 4 digit" />
             </label>
-            <p class="validator-hint hidden text-sm text-gray-500">
-                Must be more than 8 characters, including <br />
-                At least one number <br />
-                At least one lowercase letter <br />
-                At least one uppercase letter
-            </p>
         </div>
 
         <!-- Button -->
