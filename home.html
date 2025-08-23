@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Daisy UI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- TailwindCSS CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./style/styles.css">
+    <title>Home - Payment Gateway</title>
 </head>
-<body>
-    <h1>Home Page of Payoo gateway!!</h1>
+<body class="bg-[#f4f5f7] h-[100vh] max-w-lg mx-auto">
+    <!-- Navbar -->
+    <div class="min-h-[50px] flex justify-between items-center p-3 border-b-2 border-gray-500">
+        <div class="flex">
+            <img src="./assets/Group.png" class="h-12" alt="Group">
+            <div class="ml-2">
+                <h2 class="font-bold">$<span>0</span></h2>
+                <p class="text-[#08080880]">Available Balance</p>
+            </div>
+        </div>
+        <div class="">
+            <button class="btn flex items-center text-[#08080880]">
+                <img src="./assets/logout.png" alt="Logout" class="h-5 w-5 mr-1">
+                Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Title -->
+    <div class="p-3 mt-8">
+        <h1 class="text-2xl font-bold">🔥 Welcome to Payooo!</h1>
+        <p class="text-[#08080880] mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="p-3 grid grid-cols-3 gap-4">
+        <div class="rounded-3 bg-white">
+            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
+            <h2 class="text-center">Add Money</h2>
+        </div>
+        <div class="rounded-3 bg-white">
+            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
+            <h2 class="text-center">Add Money</h2>
+        </div>
+        <div class="rounded-3 bg-white">
+            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
+            <h2 class="text-center">Add Money</h2>
+        </div>
+        <div class="rounded-3 bg-white">
+            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
+            <h2 class="text-center">Add Money</h2>
+        </div>
+        <div class="rounded-3 bg-white">
+            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
+            <h2 class="text-center">Add Money</h2>
+        </div>
+        <div class="rounded-3 bg-white">
+            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
+            <h2 class="text-center">Add Money</h2>
+        </div>
+    </div>
 </body>
 </html>
