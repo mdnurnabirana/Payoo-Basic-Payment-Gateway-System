@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,56 +11,113 @@
     <link rel="stylesheet" href="./style/styles.css">
     <title>Home - Payment Gateway</title>
 </head>
-<body class="bg-[#f4f5f7] h-[100vh] max-w-lg mx-auto">
-    <!-- Navbar -->
-    <div class="min-h-[50px] flex justify-between items-center p-3 border-b-2 border-gray-500">
-        <div class="flex">
-            <img src="./assets/Group.png" class="h-12" alt="Group">
-            <div class="ml-2">
-                <h2 class="font-bold">$<span>0</span></h2>
-                <p class="text-[#08080880]">Available Balance</p>
+
+<body class="bg-[#f4f5f7] max-w-lg mx-auto">
+    <div class="bg-white rounded-b-3xl">
+        <!-- Navbar -->
+        <div class="min-h-[50px] flex justify-between items-center p-3 border-b-2 border-gray-500">
+            <div class="flex">
+                <img src="./assets/Group.png" class="h-12" alt="Group">
+                <div class="ml-2">
+                    <h2 class="font-bold">$<span>0</span></h2>
+                    <p class="text-[#08080880]">Available Balance</p>
+                </div>
+            </div>
+            <div class="">
+                <button class="btn flex items-center text-[#08080880]">
+                    <img src="./assets/logout.png" alt="Logout" class="h-5 w-5 mr-1">
+                    Logout
+                </button>
             </div>
         </div>
-        <div class="">
-            <button class="btn flex items-center text-[#08080880]">
-                <img src="./assets/logout.png" alt="Logout" class="h-5 w-5 mr-1">
-                Logout
-            </button>
+
+        <!-- Title -->
+        <div class="p-3 mt-8">
+            <h1 class="text-2xl font-bold">🔥 Welcome to Payooo!</h1>
+            <p class="text-[#08080880] mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low
+                and </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="p-3 grid grid-cols-3 gap-4 mt-6 pb-6">
+            <div class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+                <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
+                <h2 class="text-center mt-2">Add Money</h2>
+            </div>
+            <div class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+                <img src="./assets/send1.png" class="mx-auto" alt="wallet1">
+                <h2 class="text-center mt-2">Cash Out</h2>
+            </div>
+            <div class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+                <img src="./assets/money1.png" class="mx-auto" alt="wallet1">
+                <h2 class="text-center mt-2">Transfer Money</h2>
+            </div>
+            <div class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+                <img src="./assets/bonus1.png" class="mx-auto" alt="wallet1">
+                <h2 class="text-center mt-2">Get Bonus</h2>
+            </div>
+            <div class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+                <img src="./assets/purse1.png" class="mx-auto" alt="wallet1">
+                <h2 class="text-center mt-2">Pay Bill</h2>
+            </div>
+            <div class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+                <img src="./assets/transaction1.png" class="mx-auto" alt="wallet1">
+                <h2 class="text-center mt-2">Transaction</h2>
+            </div>
         </div>
     </div>
 
-    <!-- Title -->
-    <div class="p-3 mt-8">
-        <h1 class="text-2xl font-bold">🔥 Welcome to Payooo!</h1>
-        <p class="text-[#08080880] mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
-    </div>
+    <!-- Dynamic Portion -->
+    <div class="all-form-sections">
+        <!-- Add Money -->
+        <div class="mt-8 p-3">
+            <h1 class="font-bold text-lg mb-4">Add Money</h1>
+            <form action="" class="bg-white p-5 rounded-3xl">
+                <div>
+                    <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">Select a Bank</legend>
+                    <select class="select w-full rounded-4xl bg-[#f4f5f7]">
+                        <option selected class="text-[#080808b3] text-sm">Pick a Bank</option>
+                        <option>AB Bank</option>
+                        <option>BRAC Bank</option>
+                        <option>City Bank</option>
+                        <option>Dhaka Bank</option>
+                        <option>Eastern Bank</option>
+                        <option>Islami Bank Bangladesh</option>
+                        <option>Mutual Trust Bank</option>
+                        <option>Prime Bank</option>
+                        <option>Pubali Bank</option>
+                        <option>Standard Chartered Bank</option>
+                        <option>United Commercial Bank</option>
+                    </select>
+                </div>
 
-    <!-- Cards -->
-    <div class="p-3 grid grid-cols-3 gap-4">
-        <div class="rounded-3 bg-white">
-            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
-            <h2 class="text-center">Add Money</h2>
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">Bank Account Number</legend>
+                        <input type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Enter 11 digit account number" />
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">Amount to Add</legend>
+                        <input type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Add Amount to withdraw" />
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3]  mx-1">Pin Number</legend>
+                        <input type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Enter 4 digit pin number" />
+                    </fieldset>
+                </div>
+            </form>
         </div>
-        <div class="rounded-3 bg-white">
-            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
-            <h2 class="text-center">Add Money</h2>
-        </div>
-        <div class="rounded-3 bg-white">
-            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
-            <h2 class="text-center">Add Money</h2>
-        </div>
-        <div class="rounded-3 bg-white">
-            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
-            <h2 class="text-center">Add Money</h2>
-        </div>
-        <div class="rounded-3 bg-white">
-            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
-            <h2 class="text-center">Add Money</h2>
-        </div>
-        <div class="rounded-3 bg-white">
-            <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
-            <h2 class="text-center">Add Money</h2>
-        </div>
+
     </div>
 </body>
+
 </html>
