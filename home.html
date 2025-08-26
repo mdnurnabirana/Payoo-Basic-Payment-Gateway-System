@@ -40,27 +40,27 @@
 
         <!-- Cards -->
         <div class="p-3 grid grid-cols-3 gap-4 mt-6 pb-6">
-            <div id="addmoney-card" class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="addmoney-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Add Money</h2>
             </div>
-            <div id="cashout-card" class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="cashout-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/send1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Cash Out</h2>
             </div>
-            <div id="transfermoney-card" class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="transfermoney-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/money1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Transfer Money</h2>
             </div>
-            <div id="getbonus-card" class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="getbonus-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/bonus1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-3 text-[16px]">Get Bonus</h2>
             </div>
-            <div id="paybill-card" class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="paybill-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/purse1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Pay Bill</h2>
             </div>
-            <div id="transaction-card" class="border border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="transaction-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/transaction1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Transaction</h2>
             </div>
@@ -70,7 +70,7 @@
     <!-- Dynamic Portion -->
     <div class="all-form-sections">
         <!-- Add Money -->
-        <div id="addmoney-container" class="mt-8 p-3">
+        <div id="addmoney-container" class="form mt-8 p-3">
             <h1 class="font-bold text-lg mb-4">Add Money</h1>
             <form action="" class="bg-white p-5 rounded-3xl">
                 <div>
@@ -123,7 +123,7 @@
         </div>
         
         <!-- Cash Out -->
-         <div id="cashout-container" class="mt-8 p-3">
+         <div id="cashout-container" class="form mt-8 p-3">
             <h1 class="font-bold text-lg mb-4">Cash Out</h1>
             <form action="" class="bg-white p-5 rounded-3xl">
                 <div>
@@ -152,6 +152,41 @@
                 <!-- Button -->
                 <div>
                     <button id="cashout-btn" class="btn bg-[#0874f2] mt-5 w-full rounded-3xl py-2 text-white">Cashout
+                        Money</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Transfer Money -->
+         <div id="transfermoney-container" class="form mt-8 p-3">
+            <h1 class="font-bold text-lg mb-4">Transfer Money</h1>
+            <form action="" class="bg-white p-5 rounded-3xl">
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">User Account Number</legend>
+                        <input id="transfer-account" type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Enter 11 digit account number" />
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">Amount</legend>
+                        <input id="transfer-amount" type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Enter Amount" />
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3]  mx-1">Pin Number</legend>
+                        <input id="transfer-pin" type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Enter 4 digit pin number" />
+                    </fieldset>
+                </div>
+                <!-- Button -->
+                <div>
+                    <button id="transfer-btn" class="btn bg-[#0874f2] mt-5 w-full rounded-3xl py-2 text-white">Transfer
                         Money</button>
                 </div>
             </form>

@@ -1,24 +1,49 @@
 const validPin = '1234';
 
-// Reusable function for getting input value (as number)
+// Get input value as number
 function getInputMoney(id) {
   const input = document.getElementById(id);
-  return parseFloat(input.value);
+  return parseFloat(input.value) || 0;
 }
 
-// Reusable function for getting innerText (as number)
+// Get innerText as number
 function getMoney(id) {
   const el = document.getElementById(id);
-  return parseFloat(el.innerText);
+  return parseFloat(el.innerText) || 0;
 }
 
-// Reusable function for setting innerText (formatted)
+// Set innerText with 2 decimals
 function setMoney(id, amount) {
   const el = document.getElementById(id);
   el.innerText = parseFloat(amount).toFixed(2);
 }
 
-// Add Money Functionality
+// Toggle form containers
+function handleToggle(id) {
+  const forms = document.getElementsByClassName("form");
+  for (const form of forms) {
+    form.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
+// Toggle active button
+function handleButtonToggle(id) {
+  const formBtns = document.getElementsByClassName("form-btn");
+  
+  for (const btn of formBtns) {
+    btn.classList.remove("border-[#0808081a]", "bg-white", "border-[#0874f2]", "bg-[#0874f20d]");
+    btn.classList.add("border-gray-300");
+  }
+
+  const activeBtn = document.getElementById(id);
+  if (activeBtn) {
+    activeBtn.classList.remove("border-gray-300");
+    activeBtn.classList.add("border-[#0874f2]", "bg-[#0874f20d]");
+  }
+}
+
+// Add Money
 document.getElementById("addMoneyBtn").addEventListener("click", function(e){
     e.preventDefault();
 
@@ -30,7 +55,7 @@ document.getElementById("addMoneyBtn").addEventListener("click", function(e){
         return;
     }
     
-    const amount = getInputMoney("add-amount"); // ✅ fixed, should be amount input not pin
+    const amount = getInputMoney("add-amount");
     if(amount < 10){
         alert("Amount must be 10 or above!");
         return;
@@ -48,66 +73,6 @@ document.getElementById("addMoneyBtn").addEventListener("click", function(e){
     setMoney("available-balance", totalBalance);
 
     alert("Amount added successfully!");
-});
-
-// All card IDs
-const cardIds = [
-  "addmoney-card",
-  "cashout-card",
-  "transfermoney-card",
-  "getbonus-card",
-  "paybill-card",
-  "transaction-card"
-];
-
-// Hide all containers
-function hideAllContainers() {
-  cardIds.forEach(id => {
-    const containerId = id.replace("-card", "-container"); // auto map
-    const container = document.getElementById(containerId);
-    if (container) container.style.display = "none";
-  });
-}
-
-// Reset card styles
-function resetCards() {
-  cardIds.forEach(id => {
-    const card = document.getElementById(id);
-    if (card) card.style.background = "";
-  });
-}
-
-// Track active card
-let activeCard = null;
-
-// Initially hide all
-hideAllContainers();
-
-// Add listeners
-cardIds.forEach(id => {
-  const card = document.getElementById(id);
-  if (card) {
-    card.addEventListener("click", function () {
-      const containerId = id.replace("-card", "-container");
-      const container = document.getElementById(containerId);
-
-      if (activeCard === id) {
-        // Toggle off if same card clicked again
-        resetCards();
-        hideAllContainers();
-        activeCard = null;
-      } else {
-        resetCards();
-        hideAllContainers();
-
-        // Highlight and show
-        card.style.background = "#f4f5f7";
-        if (container) container.style.display = "block";
-
-        activeCard = id;
-      }
-    });
-  }
 });
 
 // Cashout 
@@ -144,4 +109,60 @@ document.getElementById("cashout-btn").addEventListener("click", function(e) {
     setMoney("available-balance", totalBalance);
 
     alert("Cashout money successful!");
+});
+
+// Transfer Money
+document.getElementById("transfer-btn").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const account = document.getElementById("transfer-account").value;
+    const amount = getInputMoney("transfer-amount");
+    const pin = document.getElementById("transfer-pin").value;
+
+    if (account.length !== 11) {
+        alert("Your account number must be 11 digits!");
+        return;
+    }
+
+    if (amount < 10) {
+        alert("Amount must be 10 or above!");
+        return;
+    }
+
+    if (pin !== validPin) {
+        alert("Invalid Pin");
+        return;
+    }
+
+    const availableBalance = getMoney("available-balance");
+
+    if (amount > availableBalance) {
+        alert("Insufficient balance!");
+        return;
+    }
+
+    const totalBalance = availableBalance - amount;
+    setMoney("available-balance", totalBalance);
+
+    alert("Transfer money successful!");
+});
+
+// Card click events
+document.getElementById("addmoney-card").addEventListener("click", function() {
+  handleToggle("addmoney-container");
+  handleButtonToggle("addmoney-card");
+});
+
+document.getElementById("cashout-card").addEventListener("click", function() {
+  handleToggle("cashout-container");
+  handleButtonToggle("cashout-card");
+});
+
+document.getElementById("transfermoney-card").addEventListener("click", function() {
+  handleToggle("transfermoney-container");
+  handleButtonToggle("transfermoney-card");
+});
+
+window.addEventListener("DOMContentLoaded", function() {
+  handleToggle(""); // hide all at start
 });
