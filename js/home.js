@@ -163,6 +163,37 @@ document.getElementById("transfermoney-card").addEventListener("click", function
   handleButtonToggle("transfermoney-card");
 });
 
+document.getElementById("getbonus-card").addEventListener("click", function() {
+  handleToggle("getbonus-container");
+  handleButtonToggle("getbonus-card");
+});
+
+
 window.addEventListener("DOMContentLoaded", function() {
   handleToggle(""); // hide all at start
+});
+
+
+// Get Bonus
+document.getElementById("getbonus-btn").addEventListener("click", function(e) {
+  e.preventDefault();
+
+  const coupon = document.getElementById("coupon").value.trim();
+
+  if (!coupon) {
+    alert("Please enter a coupon code!");
+    return;
+  }
+
+  // Example: hardcoded valid coupon for demo
+  const validCoupon = "BONUS100";
+  const bonusAmount = 100;
+
+  if (coupon === validCoupon) {
+    const availableBalance = getMoney("available-balance");
+    setMoney("available-balance", availableBalance + bonusAmount);
+    alert("Bonus added successfully!");
+  } else {
+    alert("Invalid coupon code!");
+  }
 });
