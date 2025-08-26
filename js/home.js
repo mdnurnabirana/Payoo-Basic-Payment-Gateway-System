@@ -30,7 +30,7 @@ function handleToggle(id) {
 // Toggle active button
 function handleButtonToggle(id) {
   const formBtns = document.getElementsByClassName("form-btn");
-  
+
   for (const btn of formBtns) {
     btn.classList.remove("border-[#0808081a]", "bg-white", "border-[#0874f2]", "bg-[#0874f20d]");
     btn.classList.add("border-gray-300");
@@ -44,138 +44,150 @@ function handleButtonToggle(id) {
 }
 
 // Add Money
-document.getElementById("addMoneyBtn").addEventListener("click", function(e){
-    e.preventDefault();
+document.getElementById("addMoneyBtn").addEventListener("click", function (e) {
+  e.preventDefault();
 
-    const bank = document.getElementById("bank").value;
-    const account = document.getElementById("add-account").value;
+  const bank = document.getElementById("bank").value;
+  if (bank === null) {
+    alert("Please Select a Bank");
+  }
+  const account = document.getElementById("add-account").value;
 
-    if(account.length !== 11){
-        alert("Your bank account number must be 11 digits!");
-        return;
-    }
-    
-    const amount = getInputMoney("add-amount");
-    if(amount < 10){
-        alert("Amount must be 10 or above!");
-        return;
-    }
+  if (account.length !== 11) {
+    alert("Your bank account number must be 11 digits!");
+    return;
+  }
 
-    const pin = document.getElementById("add-pin").value;
-    if(pin !== validPin){
-        alert("Invalid Pin");
-        return;
-    }
+  const amount = getInputMoney("add-amount");
+  if (amount < 10) {
+    alert("Amount must be 10 or above!");
+    return;
+  }
 
-    const availableBalance = getMoney("available-balance");
-    const totalBalance = availableBalance + amount;
+  const pin = document.getElementById("add-pin").value;
+  if (pin !== validPin) {
+    alert("Invalid Pin");
+    return;
+  }
 
-    setMoney("available-balance", totalBalance);
+  const availableBalance = getMoney("available-balance");
+  const totalBalance = availableBalance + amount;
 
-    alert("Amount added successfully!");
+  setMoney("available-balance", totalBalance);
+
+  alert("Amount added successfully!");
 });
 
 // Cashout 
-document.getElementById("cashout-btn").addEventListener("click", function(e) {
-    e.preventDefault();
+document.getElementById("cashout-btn").addEventListener("click", function (e) {
+  e.preventDefault();
 
-    const account = document.getElementById("cashout-account").value;
-    const amount = getInputMoney("cashout-amount");
-    const pin = document.getElementById("cashout-pin").value;
+  const account = document.getElementById("cashout-account").value;
+  const amount = getInputMoney("cashout-amount");
+  const pin = document.getElementById("cashout-pin").value;
 
-    if (account.length !== 11) {
-        alert("Your account number must be 11 digits!");
-        return;
-    }
+  if (account.length !== 11) {
+    alert("Your account number must be 11 digits!");
+    return;
+  }
 
-    if (amount < 10) {
-        alert("Amount must be 10 or above!");
-        return;
-    }
+  if (amount < 10) {
+    alert("Amount must be 10 or above!");
+    return;
+  }
 
-    if (pin !== validPin) {
-        alert("Invalid Pin");
-        return;
-    }
+  if (pin !== validPin) {
+    alert("Invalid Pin");
+    return;
+  }
 
-    const availableBalance = getMoney("available-balance");
+  const availableBalance = getMoney("available-balance");
 
-    if (amount > availableBalance) {
-        alert("Insufficient balance!");
-        return;
-    }
+  if (amount > availableBalance) {
+    alert("Insufficient balance!");
+    return;
+  }
 
-    const totalBalance = availableBalance - amount;
-    setMoney("available-balance", totalBalance);
+  const totalBalance = availableBalance - amount;
+  setMoney("available-balance", totalBalance);
 
-    alert("Cashout money successful!");
+  alert("Cashout money successful!");
 });
 
 // Transfer Money
-document.getElementById("transfer-btn").addEventListener("click", function(e) {
-    e.preventDefault();
+document.getElementById("transfer-btn").addEventListener("click", function (e) {
+  e.preventDefault();
 
-    const account = document.getElementById("transfer-account").value;
-    const amount = getInputMoney("transfer-amount");
-    const pin = document.getElementById("transfer-pin").value;
+  const account = document.getElementById("transfer-account").value;
+  const amount = getInputMoney("transfer-amount");
+  const pin = document.getElementById("transfer-pin").value;
 
-    if (account.length !== 11) {
-        alert("Your account number must be 11 digits!");
-        return;
-    }
+  if (account.length !== 11) {
+    alert("Your account number must be 11 digits!");
+    return;
+  }
 
-    if (amount < 10) {
-        alert("Amount must be 10 or above!");
-        return;
-    }
+  if (amount < 10) {
+    alert("Amount must be 10 or above!");
+    return;
+  }
 
-    if (pin !== validPin) {
-        alert("Invalid Pin");
-        return;
-    }
+  if (pin !== validPin) {
+    alert("Invalid Pin");
+    return;
+  }
 
-    const availableBalance = getMoney("available-balance");
+  const availableBalance = getMoney("available-balance");
 
-    if (amount > availableBalance) {
-        alert("Insufficient balance!");
-        return;
-    }
+  if (amount > availableBalance) {
+    alert("Insufficient balance!");
+    return;
+  }
 
-    const totalBalance = availableBalance - amount;
-    setMoney("available-balance", totalBalance);
+  const totalBalance = availableBalance - amount;
+  setMoney("available-balance", totalBalance);
 
-    alert("Transfer money successful!");
+  alert("Transfer money successful!");
 });
 
 // Card click events
-document.getElementById("addmoney-card").addEventListener("click", function() {
+document.getElementById("addmoney-card").addEventListener("click", function () {
   handleToggle("addmoney-container");
   handleButtonToggle("addmoney-card");
 });
 
-document.getElementById("cashout-card").addEventListener("click", function() {
+document.getElementById("cashout-card").addEventListener("click", function () {
   handleToggle("cashout-container");
   handleButtonToggle("cashout-card");
 });
 
-document.getElementById("transfermoney-card").addEventListener("click", function() {
+document.getElementById("transfermoney-card").addEventListener("click", function () {
   handleToggle("transfermoney-container");
   handleButtonToggle("transfermoney-card");
 });
 
-document.getElementById("getbonus-card").addEventListener("click", function() {
+document.getElementById("getbonus-card").addEventListener("click", function () {
   handleToggle("getbonus-container");
   handleButtonToggle("getbonus-card");
 });
 
+document.getElementById("paybill-card").addEventListener("click", function () {
+  handleToggle("paybill-container");
+  handleButtonToggle("paybill-card");
+});
 
-window.addEventListener("DOMContentLoaded", function() {
-  handleToggle(""); // hide all at start
+// document.getElementById("transaction-card").addEventListener("click", function () {
+//   handleToggle("transaction-container");
+//   handleButtonToggle("transaction-card");
+// });
+
+window.addEventListener("DOMContentLoaded", function () {
+  handleToggle("");
 });
 
 
 // Get Bonus
-document.getElementById("getbonus-btn").addEventListener("click", function(e) {
+document.getElementById("getbonus-btn").addEventListener("click", function (e) {
   e.preventDefault();
 
   const coupon = document.getElementById("coupon").value.trim();
@@ -197,3 +209,44 @@ document.getElementById("getbonus-btn").addEventListener("click", function(e) {
     alert("Invalid coupon code!");
   }
 });
+
+// Pay Bill
+document.getElementById("paybill-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const bank = document.getElementById("bank").value;
+  if (!bank) {
+    alert("Please Select a Bank");
+    return;
+  }
+
+  const account = document.getElementById("paybill-account").value;
+
+  if (account.length !== 11) {
+    alert("Your bank account number must be 11 digits!");
+    return;
+  }
+
+  const amount = getInputMoney("paybill-amount");
+  if (amount < 10) {
+    alert("Amount must be 10 or above!");
+    return;
+  }
+
+  const pin = document.getElementById("paybill-pin").value;
+  if (pin !== validPin) {
+    alert("Invalid Pin");
+    return;
+  }
+
+  const availableBalance = getMoney("available-balance");
+  const totalBalance = availableBalance - amount;
+
+  setMoney("available-balance", totalBalance);
+
+  alert("Paybill Attempt Successfull!");
+});
+
+
+
+

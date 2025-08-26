@@ -40,7 +40,8 @@
 
         <!-- Cards -->
         <div class="p-3 grid grid-cols-3 gap-4 mt-6 pb-6">
-            <div id="addmoney-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="addmoney-card"
+                class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/wallet1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Add Money</h2>
             </div>
@@ -48,11 +49,13 @@
                 <img src="./assets/send1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Cash Out</h2>
             </div>
-            <div id="transfermoney-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="transfermoney-card"
+                class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/money1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Transfer Money</h2>
             </div>
-            <div id="getbonus-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="getbonus-card"
+                class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/bonus1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-3 text-[16px]">Get Bonus</h2>
             </div>
@@ -60,7 +63,8 @@
                 <img src="./assets/purse1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Pay Bill</h2>
             </div>
-            <div id="transaction-card" class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
+            <div id="transaction-card"
+                class="form-btn border-2 border-[#0808081a] rounded-xl bg-white px-[13px] py-[20px]">
                 <img src="./assets/transaction1.png" class="mx-auto" alt="wallet1">
                 <h2 class="text-center mt-2 text-[16px]">Transaction</h2>
             </div>
@@ -121,9 +125,9 @@
                 </div>
             </form>
         </div>
-        
+
         <!-- Cash Out -->
-         <div id="cashout-container" class="form mt-8 p-3">
+        <div id="cashout-container" class="form mt-8 p-3">
             <h1 class="font-bold text-lg mb-4">Cash Out</h1>
             <form action="" class="bg-white p-5 rounded-3xl">
                 <div>
@@ -158,7 +162,7 @@
         </div>
 
         <!-- Transfer Money -->
-         <div id="transfermoney-container" class="form mt-8 p-3">
+        <div id="transfermoney-container" class="form mt-8 p-3">
             <h1 class="font-bold text-lg mb-4">Transfer Money</h1>
             <form action="" class="bg-white p-5 rounded-3xl">
                 <div>
@@ -193,7 +197,7 @@
         </div>
 
         <!-- Get Bonus -->
-         <div id="getbonus-container" class="form mt-8 p-3">
+        <div id="getbonus-container" class="form mt-8 p-3">
             <h1 class="font-bold text-lg mb-4">Get Bonus</h1>
             <form action="" class="bg-white p-5 rounded-3xl">
 
@@ -211,6 +215,70 @@
                         Bonus</button>
                 </div>
             </form>
+        </div>
+
+        <!-- Pay Bill Section -->
+        <div id="paybill-container" class="form mt-8 p-3">
+            <h1 class="font-bold text-lg mb-4">Pay Bill</h1>
+            <form action="" class="bg-white p-5 rounded-3xl">
+                <div>
+                    <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">Select to Pay</legend>
+                    <select id="bank" class="select w-full rounded-4xl bg-[#f4f5f7]">
+                        <option selected class="text-[#080808b3] text-sm">Select a Bank</option>
+                        <option>AB Bank</option>
+                        <option>BRAC Bank</option>
+                        <option>City Bank</option>
+                        <option>Dhaka Bank</option>
+                        <option>Eastern Bank</option>
+                        <option>Islami Bank Bangladesh</option>
+                        <option>Mutual Trust Bank</option>
+                        <option>Prime Bank</option>
+                        <option>Pubali Bank</option>
+                        <option>Standard Chartered Bank</option>
+                        <option>United Commercial Bank</option>
+                    </select>
+                </div>
+
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">Bill Account Number</legend>
+                        <input id="paybill-account" type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Enter 11 digit account number" />
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3] mx-1">Amount to Pay</legend>
+                        <input id="paybill-amount" type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Add Amount to withdraw" />
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-sm text-[#080808b3]  mx-1">Pin Number</legend>
+                        <input id="paybill-pin" type="text" class="input rounded-4xl w-full bg-[#f4f5f7]"
+                            placeholder="Enter 4 digit pin number" />
+                    </fieldset>
+                </div>
+                <!-- Button -->
+                <div>
+                    <button id="paybill-btn" class="btn bg-[#0874f2] mt-5 w-full rounded-3xl py-2 text-white">Pay
+                        Bill</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Transaction -->
+        <div id="trantisac-container" class="form mt-8 p-3">
+            <div class="">
+                <h1 class="font-bold text-lg mb-4">Transaction History</h1>
+                <p>View All</p>
+            </div>
+            <div class="transaction-items">
+
+            </div> 
         </div>
     </div>
 
