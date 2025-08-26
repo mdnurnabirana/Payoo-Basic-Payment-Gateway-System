@@ -1,5 +1,23 @@
 const validPin = '1234';
 
+// Reusable function for getting input value (as number)
+function getInputMoney(id) {
+  const input = document.getElementById(id);
+  return parseFloat(input.value);
+}
+
+// Reusable function for getting innerText (as number)
+function getMoney(id) {
+  const el = document.getElementById(id);
+  return parseFloat(el.innerText);
+}
+
+// Reusable function for setting innerText (formatted)
+function setMoney(id, amount) {
+  const el = document.getElementById(id);
+  el.innerText = parseFloat(amount).toFixed(2);
+}
+
 // Add Money Functionality
 document.getElementById("addMoneyBtn").addEventListener("click", function(e){
     e.preventDefault();
@@ -8,31 +26,29 @@ document.getElementById("addMoneyBtn").addEventListener("click", function(e){
     const account = document.getElementById("add-account").value;
 
     if(account.length !== 11){
-        alert("Your bank account number must be 11 digit!");
+        alert("Your bank account number must be 11 digits!");
         return;
     }
     
-    const amount = parseFloat(parseFloat(document.getElementById("add-amount").value).toFixed(2));
-
+    const amount = getInputMoney("add-amount"); // ✅ fixed, should be amount input not pin
     if(amount < 10){
-        alert("Amount must be 10 or Avobe!");
+        alert("Amount must be 10 or above!");
         return;
     }
 
     const pin = document.getElementById("add-pin").value;
-
     if(pin !== validPin){
         alert("Invalid Pin");
         return;
     }
 
-    const availableBalance = parseFloat(parseFloat(document.getElementById("available-balance").innerText).toFixed(2));
+    const availableBalance = getMoney("available-balance");
+    const totalBalance = availableBalance + amount;
 
-    const totalBalance = amount + availableBalance;
-    document.getElementById("available-balance").innerText = totalBalance;
+    setMoney("available-balance", totalBalance);
 
     alert("Amount added successfully!");
-})
+});
 
 // All card IDs
 const cardIds = [
@@ -99,11 +115,11 @@ document.getElementById("cashout-btn").addEventListener("click", function(e) {
     e.preventDefault();
 
     const account = document.getElementById("cashout-account").value;
-    const amount = parseFloat(parseFloat(document.getElementById("cashout-amount").value).toFixed(2));
+    const amount = getInputMoney("cashout-amount");
     const pin = document.getElementById("cashout-pin").value;
 
     if (account.length !== 11) {
-        alert("Your account number must be 11 digit!");
+        alert("Your account number must be 11 digits!");
         return;
     }
 
@@ -117,7 +133,7 @@ document.getElementById("cashout-btn").addEventListener("click", function(e) {
         return;
     }
 
-    const availableBalance = parseFloat(parseFloat(document.getElementById("available-balance").innerText).toFixed(2));
+    const availableBalance = getMoney("available-balance");
 
     if (amount > availableBalance) {
         alert("Insufficient balance!");
@@ -125,6 +141,7 @@ document.getElementById("cashout-btn").addEventListener("click", function(e) {
     }
 
     const totalBalance = availableBalance - amount;
-    document.getElementById("available-balance").innerText = totalBalance;
-    alert("Cashout money successfull!");
+    setMoney("available-balance", totalBalance);
+
+    alert("Cashout money successful!");
 });
