@@ -1,4 +1,5 @@
 const validPin = '1234';
+const transactionData = [];
 
 // Get input value as number
 function getInputMoney(id) {
@@ -75,6 +76,14 @@ document.getElementById("addMoneyBtn").addEventListener("click", function (e) {
 
   setMoney("available-balance", totalBalance);
 
+  const data = {
+    name: "Add Money",
+    date: new Date().toLocaleTimeString()
+  }
+
+  transactionData.push(data)
+  console.log(transactionData)
+
   alert("Amount added successfully!");
 });
 
@@ -111,6 +120,12 @@ document.getElementById("cashout-btn").addEventListener("click", function (e) {
   const totalBalance = availableBalance - amount;
   setMoney("available-balance", totalBalance);
 
+  const data = {
+    name: "Cashout",
+    date: new Date().toLocaleTimeString()
+  }
+
+  transactionData.push(data)
   alert("Cashout money successful!");
 });
 
@@ -146,7 +161,13 @@ document.getElementById("transfer-btn").addEventListener("click", function (e) {
 
   const totalBalance = availableBalance - amount;
   setMoney("available-balance", totalBalance);
+  const data = {
+    name: "Transfer Money",
+    date: new Date().toLocaleTimeString()
+  }
 
+  transactionData.push(data)
+  console.log(transactionData)
   alert("Transfer money successful!");
 });
 
@@ -176,10 +197,10 @@ document.getElementById("paybill-card").addEventListener("click", function () {
   handleButtonToggle("paybill-card");
 });
 
-// document.getElementById("transaction-card").addEventListener("click", function () {
-//   handleToggle("transaction-container");
-//   handleButtonToggle("transaction-card");
-// });
+document.getElementById("transaction-card").addEventListener("click", function () {
+  handleToggle("transaction-container");
+  handleButtonToggle("transaction-card");
+});
 
 window.addEventListener("DOMContentLoaded", function () {
   handleToggle("");
@@ -204,10 +225,18 @@ document.getElementById("getbonus-btn").addEventListener("click", function (e) {
   if (coupon === validCoupon) {
     const availableBalance = getMoney("available-balance");
     setMoney("available-balance", availableBalance + bonusAmount);
+    const data = {
+      name: "Bonus",
+      date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data)
+    console.log(transactionData)
     alert("Bonus added successfully!");
   } else {
     alert("Invalid coupon code!");
   }
+
 });
 
 // Pay Bill
@@ -243,10 +272,39 @@ document.getElementById("paybill-btn").addEventListener("click", function (e) {
   const totalBalance = availableBalance - amount;
 
   setMoney("available-balance", totalBalance);
+  const data = {
+    name: "Pay Bill",
+    date: new Date().toLocaleTimeString()
+  }
 
+  transactionData.push(data)
+  console.log(transactionData)
   alert("Paybill Attempt Successfull!");
 });
 
+// Transaction History
+document.getElementById("transaction-card").addEventListener("click", function () {
+  const transactionContainer = document.getElementById("transaction-items")
+  transactionContainer.innerText = ""
 
-
-
+  for (const data of transactionData) {
+    const div = document.createElement("div")
+    div.innerHTML = `
+      <div class="bg-white rounded-xl p-3 flex justify-between items-center mt-3">
+      <div class="flex items-center">
+        <div class="p-3 rounded-full bg-[#f4f5f7] flex-shrink-0">
+        <img src="./assets/wallet1.png" class="mx-auto" alt="" />
+        </div>
+        <div class="ml-3">
+        <h1 class="font-semibold text-[#08080860] text-lg">${data.name}</h1>
+        <p class="font-semibold text-[#08080860] text-sm">${data.date}</p>
+        </div>
+      </div>
+      <div class="flex items-center h-full">
+        <img src="./assets/three-dot.png" alt="options" class="self-center" />
+      </div>
+      </div>
+    `
+    transactionContainer.appendChild(div);
+  }
+});

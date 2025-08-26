@@ -19,7 +19,7 @@
 
     <form action="" class="rounded-2xl bg-white w-[350px] p-6 shadow-lg">
         <!-- Phone -->
-        <div class="mb-4">
+        <div class="mb-3">
             <label class="input validator bg-[#f4f5f7] flex items-center gap-2 p-2 rounded-lg">
                 <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                     <g fill="none">
@@ -31,14 +31,14 @@
                             fill="currentColor"></path>
                     </g>
                 </svg>
-                <input id="mobile" type="tel" class="tabular-nums bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter Your Phone Number"
+                <input id="mobile" type="tel" class="tabular-nums bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter Your Phone Number (12345678910)"
                     pattern="[0-9]*" minlength="11" maxlength="11" title="Must be 11 digits" />
             </label>
             <p class="validator-hint text-sm text-gray-500">Must be 10 digits</p>
         </div>
 
         <!-- Password -->
-        <div class="mb-4">
+        <div class="mb-3">
             <label class="input validator bg-[#f4f5f7] flex items-center gap-2 p-2 rounded-lg">
                 <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
@@ -49,7 +49,7 @@
                         <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                     </g>
                 </svg>
-                <input id="pin" type="password" class="bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter 4 digit pin"
+                <input id="pin" type="password" class="bg-[#f4f5f7] flex-1 outline-none" required placeholder="Enter 4 digit pin (1234)"
                     minlength="4" maxlength="4" pattern="^[0-9]{4}$"
                     title="Must be more than 4 digit" />
             </label>
